@@ -184,7 +184,7 @@ export default {
     showDrawer: true,
     loadingGrupos: true,
     grupos: [],
-    grupo: {}
+    grupo: {},
   }),
   created() {
     this.$vuetify.theme.dark = false;
@@ -249,14 +249,14 @@ export default {
       this.loadingGrupos = true;
       axios
         .get(process.env.VUE_APP_LOCALHOST + "/Grupos/GetGrupos")
-        .then(response => {
+        .then((response) => {
           this.grupos = response.data;
 
           this.grupo = this.grupos[this.grupos.length - 1];
 
           this.loadingGrupos = false;
         })
-        .catch(error => {
+        .catch((error) => {
           this.messageTitulo = "Erro ao carregar os grupos!";
           this.messageColor = "red";
           this.snackbar = true;
@@ -280,7 +280,7 @@ export default {
 
         axios
           .post(url, this.grupo)
-          .then(response => {
+          .then((response) => {
             this.messageTitulo = "Grupo criado com sucesso!";
             this.messageColor = "green";
             this.snackbar = true;
@@ -289,7 +289,7 @@ export default {
 
             return response;
           })
-          .catch(error => {
+          .catch((error) => {
             this.messageTitulo = "Erro ao criar o grupo!";
             this.messageColor = "red";
             this.snackbar = true;
@@ -310,14 +310,14 @@ export default {
       if (this.checkInputs(this.grupo)) {
         axios
           .put(url, this.grupo)
-          .then(response => {
+          .then((response) => {
             this.messageTitulo = "Grupo editado com sucesso!";
             this.messageColor = "green";
             this.snackbar = true;
             this.getRequest_Grupos();
             return response;
           })
-          .catch(error => {
+          .catch((error) => {
             this.messageTitulo = "Erro ao editar o grupo!";
             this.messageColor = "red";
             this.snackbarv = true;
@@ -339,7 +339,7 @@ export default {
 
       axios
         .delete(url)
-        .then(response => {
+        .then((response) => {
           this.messageTitulo = "Grupo eliminado com sucesso!";
           this.messageColor = "green";
           this.snackbar = true;
@@ -350,7 +350,7 @@ export default {
 
           return response;
         })
-        .catch(error => {
+        .catch((error) => {
           this.messageTitulo =
             "Erro ao eliminar o grupo! O grupo pode estar associado a um cliente!";
           this.messageColor = "red";
@@ -391,8 +391,8 @@ export default {
       }
 
       return return_value;
-    }
-  }
+    },
+  },
 };
 </script>
 

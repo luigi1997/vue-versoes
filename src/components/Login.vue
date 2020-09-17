@@ -59,7 +59,7 @@ export default {
     erroLogin: "",
     loadingLogin: false,
     email: "",
-    password: ""
+    password: "",
   }),
   created() {
     this.$vuetify.theme.dark = false;
@@ -88,22 +88,22 @@ export default {
 
       axios
         .get(url)
-        .then(response => {
+        .then((response) => {
           this.erroLogin = "";
           localStorage.setItem("access_token", response.data.toLowerCase());
           this.$router.push({ path: "/main" });
           return response;
         })
-        .catch(error => {
+        .catch((error) => {
           this.erroLogin = "Email ou password incorretos.";
           localStorage.removeItem("access_token");
           return error;
         })
-        .finally(fin => {
+        .finally((fin) => {
           this.loadingLogin = false;
           return fin;
         });
-    }
-  }
+    },
+  },
 };
 </script>

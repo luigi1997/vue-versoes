@@ -467,9 +467,11 @@ export default {
     async getRequest_Versoes_GIT() {
       this.loadingVersoes = true;
       axios
-        .get(
-          "https://api.github.com/repos/luigi1997/OlifelVersionUpdateRepo/releases"
-        )
+        .get("https://api.github.com/repos/olifel/VisualGest.net/releases", {
+          headers: {
+            Authorization: "token e8bad18a165581ee8f1cc4e5580d90b7fd1e1f21",
+          },
+        })
         .then((response) => {
           this.versoes = response.data;
           this.getRequest_Versoes();
